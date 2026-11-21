@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#151413">
+<title>Piano Trainer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header id="bar">
+  <button id="songButton" class="song-button" aria-label="Choose a song">
+    <span id="songTitle">Choose a song</span>
+    <svg viewBox="0 0 12 8" class="chev"><path d="M1 1l5 5 5-5"/></svg>
+  </button>
+  <div class="group">
+    <button id="play" class="primary" disabled aria-label="Play"><svg viewBox="0 0 24 24"><path id="playIcon" d="M8 5.5v13l10.5-6.5z"/></svg><span id="playText">Play</span></button>
+    <button id="restart" class="icon" disabled aria-label="Restart"><svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-6.6 4.7l1.9.6A5 5 0 1 0 12 7v3L7.5 6 12 2z"/></svg></button>
+    <button id="loop" class="icon" disabled aria-label="Loop" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M7 7h9.2l-1.6-1.6L16 4l4 4-4 4-1.4-1.4L16.2 9H7a2 2 0 0 0-2 2v1H3v-1a4 4 0 0 1 4-4zm10 10H7.8l1.6 1.6L8 20l-4-4 4-4 1.4 1.4L7.8 15H17a2 2 0 0 0 2-2v-1h2v1a4 4 0 0 1-4 4z"/></svg></button>
+  </div>
+  <div class="sep"></div>
+  <div class="group">
+    <span class="label">Speed</span>
+    <select id="speed" aria-label="Speed"></select>
+    <div id="mode" class="seg" role="radiogroup" aria-label="Mode">
+      <button data-mode="wait" class="on" role="radio" aria-checked="true">Wait</button>
+      <button data-mode="play" role="radio" aria-checked="false">Play along</button>
+    </div>
+    <div id="parts" class="group"></div>
+    <button id="accomp" class="icon" aria-label="Piano plays the other hand" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></button>
+  </div>
+  <span id="status"><span id="statusText">Connecting</span></span>
+</header>
+<div id="timelineRow">
+  <canvas id="timeline" aria-label="Song position"></canvas>
+  <span id="clock"></span>
+</div>
+<main id="stage"><canvas id="notes"></canvas></main>
+
+<div id="picker" class="overlay" hidden>
+  <div class="sheet">
+    <div class="sheet-head"><h1>Songs</h1><button id="pickerClose" class="icon" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6l5.6-5.6L5 6.4z"/></svg></button></div>
+    <div id="pickerList" class="list"></div>
+    <p id="pickerEmpty" class="hint" hidden>No songs yet.</p>
+    <p class="hint">New songs: put a MIDI file in the songs folder on your PC.</p>
+  </div>
+</div>
+
+<div id="finished" class="overlay" hidden>
+  <div class="sheet small">
+    <h1>Finished</h1>
+    <div id="finishedScore" class="score"></div>
+    <p id="finishedDetail" class="hint"></p>
+    <div class="row"><button id="finishedPick">Songs</button><button id="again" class="primary">Play again</button></div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Publish only the app. Everything else in this folder (notes, local experiments, your songs) stays local.
+/*
+!/.gitignore
+!/README.md
+!/start.bat
+!/docs/
+!/app/
+!/songs/
+/songs/*
+!/songs/C major scale.mid
+
+__pycache__/
+node_modules/
+*.pyc
+.DS_Store
