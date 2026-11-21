@@ -87,3 +87,7 @@ python -m unittest test_midi_file     # MIDI file reader
 | `app/web/js/io/` | Web MIDI, server connection |
 | `app/web/js/ui/` | Drawing, timeline, touch input, controls |
 | `app/web/js/config.js` | Timing windows, speeds, colours |
+
+## License
+
+MIT. See [LICENSE](LICENSE).
